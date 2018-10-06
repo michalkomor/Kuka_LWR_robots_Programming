@@ -1,0 +1,53 @@
+&ACCESS RVP
+&REL 4
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\vorgabe
+&PARAM EDITMASK = *
+DEF FriApp_3( )
+
+
+;FOLD INI
+  ;FOLD BASISTECH INI
+
+    GLOBAL INTERRUPT DECL 3 WHEN $STOPMESS==TRUE DO IR_STOPM ( )
+    INTERRUPT ON 3 
+    BAS (#INITMOV,0 )
+  ;ENDFOLD (BASISTECH INI)
+  ;FOLD USER INI
+    ;Make your modifications here
+    
+
+  ;ENDFOLD (USER INI)
+;ENDFOLD (INI)
+for i=1 to 16
+$fri_to_int[i]=0
+$fri_to_rea[i]=0.0
+endfor
+
+bas(#tool,3)
+
+halt ;input correct tool number here and restart
+
+;move to Home-Position
+ptp { a1 0,a2 90,a3 0,a4 0,a5 0,a6 0,e1 0}
+
+retVal=friSetup("169.254.76.9",49938,49938)
+
+; Test open FRI with datarate .. msec
+retVal=friopen(20)
+wait for ($FriState==#MON)
+
+; Move to reasonable Startposition !!!
+ptp {a1 0,a2 87,a3 87,a4 0,a5 -55,a6 0,e1 0}
+wait for ($fri_frm_int[1]==13)
+retVal=FRISTART(1.0)
+wait for ($FriState==#CMD)
+wait for ($fri_frm_int[1]==20)
+
+retVal=FRISTOP()
+$fri_to_int[1]=-1
+wait sec 0.5
+
+retVal = FRICLOSE()
+;move to Home-Position
+ptp { a1 0,a2 90,a3 0,a4 0,a5 0,a6 0,e1 0}
+END

@@ -1,0 +1,54 @@
+&ACCESS RVP
+&REL 2
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\vorgabe
+&PARAM EDITMASK = *
+DEF FriApp_5_LWR2( )
+
+;FOLD INI
+  ;FOLD BASISTECH INI
+
+    GLOBAL INTERRUPT DECL 3 WHEN $STOPMESS==TRUE DO IR_STOPM ( )
+    INTERRUPT ON 3 
+    BAS (#INITMOV,0 )
+  ;ENDFOLD (BASISTECH INI)
+  ;FOLD USER INI
+    ;Make your modifications here
+    
+
+  ;ENDFOLD (USER INI)
+;ENDFOLD (INI)
+
+;fold begin
+for i=1 to 16
+$fri_to_int[i]=0
+$fri_to_rea[i]=0.0
+endfor
+bas(#tool,4)
+; Move to reasonable Startposition 
+ptp {a1 -77,a2 110,a3 -57,a4 -50,a5 60,a6 50,e1 10}
+;endfold begin
+
+;fold friopen
+
+retVal=friSetup("169.254.76.9",49939,49939)
+retVal=friopen(25)
+wait for ($FriState==#MON)
+$fri_to_int[1]=1
+;endfold friopen
+
+;fold fristart
+wait for ($FriQuality==#PERFECT)
+retVal=FRISTART(1.0)
+;wait for ($FriState==#CMD)
+wait for ($fri_frm_int[3]==21)
+
+;endfold fristart 
+
+;fold friclose
+retVal = FRISTOP()
+$fri_to_int[3]=7
+wait sec 0.5
+retVal = FRICLOSE()
+
+
+;endfold fricloseEND

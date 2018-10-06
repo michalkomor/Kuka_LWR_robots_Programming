@@ -1,0 +1,121 @@
+# depslib dependency file v1.0
+1407534606 source:d:\praca_magisterska\friapps\friapp_1\friapp_1.cpp
+	<config.h>
+	<iostream>
+	<cstdlib>
+	<math.h>
+	<limits.h>
+	<vector>
+	<fstream>
+	"friudp.h"
+	"friremote.h"
+	"Pomiar.h"
+
+1407533510 d:\praca_magisterska\friapps\friapp_1\friudp.h
+	<stdio.h>
+	<stdlib.h>
+	<winsock2.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<arpa/inet.h>
+	<unistd.h>
+	<netdb.h>
+	<string.h>
+	<sys/time.h>
+	<time.h>
+	"friComm.h"
+	<iostream>
+	<sockLib.h>
+
+1407533510 d:\praca_magisterska\friapps\friapp_1\fricomm.h
+
+1407533510 d:\praca_magisterska\friapps\friapp_1\friremote.h
+	"friudp.h"
+
+1407534014 d:\praca_magisterska\friapps\friapp_1\pomiar.h
+	<iostream>
+	"friremote.h"
+
+1407533510 source:d:\praca_magisterska\friapps\friapp_1\friremote.cpp
+	"friremote.h"
+	<iostream>
+	<stdlib.h>
+
+1407533510 source:d:\praca_magisterska\friapps\friapp_1\friudp.cpp
+	"friudp.h"
+	<winsock2.h>
+	"vxworks.h"
+	"bpfDrv.h"
+	"ioLib.h"
+	<logLib.h>
+	<sys/ioctl.h>
+	<wrn/coreip/net/ethernet.h>
+	<wrn/coreip/net/if.h>
+	<wrn/coreip/netinet/ip.h>
+	<wrn/coreip/netinet/udp.h>
+	<iostream>
+	"friremote.h"
+
+1397547504 source:d:\praca_magisterska\friapps\friapp_1\pomiar.cpp
+	"Pomiar.h"
+
+1407534606 source:c:\users\fri\documents\fri_projekty\komor\friapp_1\friapp_1.cpp
+	<config.h>
+	<iostream>
+	<cstdlib>
+	<math.h>
+	<limits.h>
+	<vector>
+	<fstream>
+	"friudp.h"
+	"friremote.h"
+	"Pomiar.h"
+
+1407533509 c:\users\fri\documents\fri_projekty\komor\friapp_1\friudp.h
+	<stdio.h>
+	<stdlib.h>
+	<winsock2.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<arpa/inet.h>
+	<unistd.h>
+	<netdb.h>
+	<string.h>
+	<sys/time.h>
+	<time.h>
+	"friComm.h"
+	<iostream>
+	<sockLib.h>
+
+1407533509 c:\users\fri\documents\fri_projekty\komor\friapp_1\fricomm.h
+
+1407533509 c:\users\fri\documents\fri_projekty\komor\friapp_1\friremote.h
+	"friudp.h"
+
+1407534013 c:\users\fri\documents\fri_projekty\komor\friapp_1\pomiar.h
+	<iostream>
+	"friremote.h"
+
+1407533509 source:c:\users\fri\documents\fri_projekty\komor\friapp_1\friremote.cpp
+	"friremote.h"
+	<iostream>
+	<stdlib.h>
+
+1407533509 source:c:\users\fri\documents\fri_projekty\komor\friapp_1\friudp.cpp
+	"friudp.h"
+	<winsock2.h>
+	"vxworks.h"
+	"bpfDrv.h"
+	"ioLib.h"
+	<logLib.h>
+	<sys/ioctl.h>
+	<wrn/coreip/net/ethernet.h>
+	<wrn/coreip/net/if.h>
+	<wrn/coreip/netinet/ip.h>
+	<wrn/coreip/netinet/udp.h>
+	<iostream>
+	"friremote.h"
+
+1397547504 source:c:\users\fri\documents\fri_projekty\komor\friapp_1\pomiar.cpp
+	"Pomiar.h"
+

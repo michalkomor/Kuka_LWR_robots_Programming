@@ -1,0 +1,137 @@
+# depslib dependency file v1.0
+1412597256 source:d:\praca_magisterska\friapps\friapp_2\friapp_2.cpp
+	<config.h>
+	<iostream>
+	<cstdlib>
+	<math.h>
+	<limits.h>
+	"friudp.h"
+	"friremote.h"
+	"Pomiar.h"
+	"Pomiar_cart.h"
+	"vector"
+	<fstream>
+
+1394446074 d:\praca_magisterska\friapps\friapp_2\friudp.h
+	<stdio.h>
+	<stdlib.h>
+	<winsock2.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<arpa/inet.h>
+	<unistd.h>
+	<netdb.h>
+	<string.h>
+	<sys/time.h>
+	<time.h>
+	"friComm.h"
+	<iostream>
+	<sockLib.h>
+
+1280299426 d:\praca_magisterska\friapps\friapp_2\fricomm.h
+
+1280299428 d:\praca_magisterska\friapps\friapp_2\friremote.h
+	"friudp.h"
+
+1280394066 source:d:\praca_magisterska\friapps\friapp_2\friremote.cpp
+	"friremote.h"
+	<iostream>
+	<stdlib.h>
+
+1394446350 source:d:\praca_magisterska\friapps\friapp_2\friudp.cpp
+	"friudp.h"
+	<winsock2.h>
+	"vxworks.h"
+	"bpfDrv.h"
+	"ioLib.h"
+	<logLib.h>
+	<sys/ioctl.h>
+	<wrn/coreip/net/ethernet.h>
+	<wrn/coreip/net/if.h>
+	<wrn/coreip/netinet/ip.h>
+	<wrn/coreip/netinet/udp.h>
+	<iostream>
+	"friremote.h"
+
+1280394066 source:c:\users\fri\documents\fri_projekty\komor\friapp_2\friremote.cpp
+	"friremote.h"
+	<iostream>
+	<stdlib.h>
+
+1280299428 c:\users\fri\documents\fri_projekty\komor\friapp_2\friremote.h
+	"friudp.h"
+
+1394446074 c:\users\fri\documents\fri_projekty\komor\friapp_2\friudp.h
+	<stdio.h>
+	<stdlib.h>
+	<winsock2.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<arpa/inet.h>
+	<unistd.h>
+	<netdb.h>
+	<string.h>
+	<sys/time.h>
+	<time.h>
+	"friComm.h"
+	<iostream>
+	<sockLib.h>
+
+1280299426 c:\users\fri\documents\fri_projekty\komor\friapp_2\fricomm.h
+
+1394446350 source:c:\users\fri\documents\fri_projekty\komor\friapp_2\friudp.cpp
+	"friudp.h"
+	<winsock2.h>
+	"vxworks.h"
+	"bpfDrv.h"
+	"ioLib.h"
+	<logLib.h>
+	<sys/ioctl.h>
+	<wrn/coreip/net/ethernet.h>
+	<wrn/coreip/net/if.h>
+	<wrn/coreip/netinet/ip.h>
+	<wrn/coreip/netinet/udp.h>
+	<iostream>
+	"friremote.h"
+
+1410856378 source:c:\users\fri\documents\fri_projekty\komor\friapp_2\friapp_2.cpp
+	<config.h>
+	<iostream>
+	<cstdlib>
+	<math.h>
+	<limits.h>
+	"friudp.h"
+	"friremote.h"
+	"Pomiar.h"
+	"Pomiar_cart.h"
+	"vector"
+	<fstream>
+
+1397547504 source:c:\users\fri\documents\fri_projekty\komor\friapp_2\pomiar.cpp
+	"Pomiar.h"
+
+1408448212 c:\users\fri\documents\fri_projekty\komor\friapp_2\pomiar.h
+	<iostream>
+	"friremote.h"
+
+1400492302 source:c:\users\fri\documents\fri_projekty\komor\friapp_2\pomiar_cart.cpp
+	"Pomiar_cart.h"
+
+1408448215 c:\users\fri\documents\fri_projekty\komor\friapp_2\pomiar_cart.h
+	<iostream>
+	"friremote.h"
+
+1397547504 source:d:\praca_magisterska\friapps\friapp_2\pomiar.cpp
+	"Pomiar.h"
+
+1408448212 d:\praca_magisterska\friapps\friapp_2\pomiar.h
+	<iostream>
+	"friremote.h"
+
+1400492302 source:d:\praca_magisterska\friapps\friapp_2\pomiar_cart.cpp
+	"Pomiar_cart.h"
+
+1408448215 d:\praca_magisterska\friapps\friapp_2\pomiar_cart.h
+	<iostream>
+	"friremote.h"
+

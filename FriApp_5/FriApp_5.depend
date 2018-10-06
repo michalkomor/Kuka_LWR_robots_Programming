@@ -1,0 +1,138 @@
+# depslib dependency file v1.0
+1410855837 source:c:\users\fri\documents\fri_projekty\komor\friapp_5\friapp_5.cpp
+	<fstream>
+	<vector>
+	<iostream>
+	<cstdlib>
+	<math.h>
+	<limits.h>
+	"friudp.h"
+	"friremote.h"
+	"Pomiar.h"
+	"Pomiar_cart.h"
+	"Jakobian.h"
+
+1396341744 c:\users\fri\documents\fri_projekty\komor\friapp_5\friudp.h
+	<stdio.h>
+	<stdlib.h>
+	<winsock2.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<arpa/inet.h>
+	<unistd.h>
+	<netdb.h>
+	<string.h>
+	<sys/time.h>
+	<time.h>
+	"friComm.h"
+	<iostream>
+	<sockLib.h>
+
+1280299426 c:\users\fri\documents\fri_projekty\komor\friapp_5\fricomm.h
+
+1401179794 c:\users\fri\documents\fri_projekty\komor\friapp_5\friremote.h
+	"friudp.h"
+
+1408448212 c:\users\fri\documents\fri_projekty\komor\friapp_5\pomiar.h
+	<iostream>
+	"friremote.h"
+
+1408448215 c:\users\fri\documents\fri_projekty\komor\friapp_5\pomiar_cart.h
+	<iostream>
+	"friremote.h"
+
+1408448217 c:\users\fri\documents\fri_projekty\komor\friapp_5\jakobian.h
+	<iostream>
+	"friremote.h"
+
+1398336312 source:c:\users\fri\documents\fri_projekty\komor\friapp_5\friremote.cpp
+	"friremote.h"
+	<iostream>
+	<stdlib.h>
+
+1394445898 source:c:\users\fri\documents\fri_projekty\komor\friapp_5\friudp.cpp
+	"friudp.h"
+	<winsock2.h>
+	"vxworks.h"
+	"bpfDrv.h"
+	"ioLib.h"
+	<logLib.h>
+	<sys/ioctl.h>
+	<wrn/coreip/net/ethernet.h>
+	<wrn/coreip/net/if.h>
+	<wrn/coreip/netinet/ip.h>
+	<wrn/coreip/netinet/udp.h>
+	<iostream>
+	"friremote.h"
+
+1400499328 source:c:\users\fri\documents\fri_projekty\komor\friapp_5\jakobian.cpp
+	"Jakobian.h"
+
+1397547504 source:c:\users\fri\documents\fri_projekty\komor\friapp_5\pomiar.cpp
+	"Pomiar.h"
+
+1400492302 source:c:\users\fri\documents\fri_projekty\komor\friapp_5\pomiar_cart.cpp
+	"Pomiar_cart.h"
+
+1398336312 source:d:\praca_magisterska\friapps\friapp_5\friremote.cpp
+	"friremote.h"
+	<iostream>
+	<stdlib.h>
+
+1401179794 d:\praca_magisterska\friapps\friapp_5\friremote.h
+	"friudp.h"
+
+1396341744 d:\praca_magisterska\friapps\friapp_5\friudp.h
+	<stdio.h>
+	<stdlib.h>
+	<winsock2.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<arpa/inet.h>
+	<unistd.h>
+	<netdb.h>
+	<string.h>
+	<sys/time.h>
+	<time.h>
+	"friComm.h"
+	<iostream>
+	<sockLib.h>
+
+1280299426 d:\praca_magisterska\friapps\friapp_5\fricomm.h
+
+1394445898 source:d:\praca_magisterska\friapps\friapp_5\friudp.cpp
+	"friudp.h"
+	<winsock2.h>
+	"vxworks.h"
+	"bpfDrv.h"
+	"ioLib.h"
+	<logLib.h>
+	<sys/ioctl.h>
+	<wrn/coreip/net/ethernet.h>
+	<wrn/coreip/net/if.h>
+	<wrn/coreip/netinet/ip.h>
+	<wrn/coreip/netinet/udp.h>
+	<iostream>
+	"friremote.h"
+
+1400499328 source:d:\praca_magisterska\friapps\friapp_5\jakobian.cpp
+	"Jakobian.h"
+
+1408448217 d:\praca_magisterska\friapps\friapp_5\jakobian.h
+	<iostream>
+	"friremote.h"
+
+1397547504 source:d:\praca_magisterska\friapps\friapp_5\pomiar.cpp
+	"Pomiar.h"
+
+1408448212 d:\praca_magisterska\friapps\friapp_5\pomiar.h
+	<iostream>
+	"friremote.h"
+
+1400492302 source:d:\praca_magisterska\friapps\friapp_5\pomiar_cart.cpp
+	"Pomiar_cart.h"
+
+1408448215 d:\praca_magisterska\friapps\friapp_5\pomiar_cart.h
+	<iostream>
+	"friremote.h"
+

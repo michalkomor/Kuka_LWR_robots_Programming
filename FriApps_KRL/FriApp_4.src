@@ -1,0 +1,135 @@
+&ACCESS RVP
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\vorgabe
+&PARAM EDITMASK = *
+DEF FriApp_4( )
+DECL INT j
+
+;fold stiffness
+DECL STIFFNESS MYSTIFF
+MYSTIFF=$STIFFNESS
+
+;FOLD ; controller type: (10, 20, 30, 101);%{PE}%R 5.6.11,%MKUKATPBASIS,%CCOMMENT,%VNORMAL,%P 2:controller type: (10, 20, 30, 101)
+;ENDFOLD
+MYSTIFF.STRATEGY=20
+;FOLD ; reference coordinate system: (#tool or #base);%{PE}%R 5.6.11,%MKUKATPBASIS,%CCOMMENT,%VNORMAL,%P 2:reference coordinate system: (#tool or #base)
+;ENDFOLD
+MYSTIFF.FRAMETYPE=#TOOL
+;FOLD ; tool:;%{PE}%R 5.6.11,%MKUKATPBASIS,%CCOMMENT,%VNORMAL,%P 2:tool:
+;ENDFOLD
+MYSTIFF.TOOL=TOOL_DATA[3]
+;FOLD ; Cartesian spring stiffness:;%{PE}%R 5.6.11,%MKUKATPBASIS,%CCOMMENT,%VNORMAL,%P 2:Cartesian spring stiffness:
+;ENDFOLD
+
+MYSTIFF.CPSTIFFNESS    = { X 0.0,Y 0.0,Z 0.0, A 0.0, B 0.0,C 0.0}  
+;MYSTIFF.CPSTIFFNESS    = { X 500.0,Y 500.0,Z 500.0, A 300.0, B 300.0,C 300.0}  
+;FOLD ; Cartesian spring damping:;%{PE}%R 5.6.11,%MKUKATPBASIS,%CCOMMENT,%VNORMAL,%P 2:Cartesian spring damping:
+;ENDFOLD
+MYSTIFF.CPDAMPING      = { X 0.7,Y 0.7,Z 0.7,A 0.7,B 0.7,C 0.7}
+;FOLD ; Axis-specific spring stiffness:;%{PE}%R 5.6.11,%MKUKATPBASIS,%CCOMMENT,%VNORMAL,%P 2:Axis-specific spring stiffness:
+;ENDFOLD
+MYSTIFF.AXISSTIFFNESS  = {A1 0.0,A2 0.0,A3 0.0,A4 0.0,A5 0.0,A6 0.0,E1 1000.0}
+;FOLD ; Axis-specific spring damping:;%{PE}%R 5.6.11,%MKUKATPBASIS,%CCOMMENT,%VNORMAL,%P 2:Axis-specific spring damping:
+;ENDFOLD
+ MYSTIFF.AXISDAMPING   = {A1 0.7,A2 0.7,A3 0.7, A4 0.7, A5 0.7, A6 0.7, E1 0.7} 
+;FOLD ; Limit. of the Cartesian deviation from the path:;%{PE}%R 5.6.11,%MKUKATPBASIS,%CCOMMENT,%VNORMAL,%P 2:Limit. of the Cartesian deviation from the path:
+;ENDFOLD
+MYSTIFF.CPMAXDELTA     = {X 1000.0,Y 1000.0,Z 1000.0,A 1000.0,B 1000.0,C 1000.0} 
+;FOLD ; Limit. of the Cartesian force at the TCP:;%{PE}%R 5.6.11,%MKUKATPBASIS,%CCOMMENT,%VNORMAL,%P 2:Limit. of the Cartesian force at the TCP:
+;ENDFOLD
+MYSTIFF.MAXFORCE       = {X 150.0,Y 150.0,Z 150.0,A 150.0,B 150.0,C 150.0} 
+;FOLD ; Limit. of the axis-specific deviation:;%{PE}%R 5.6.11,%MKUKATPBASIS,%CCOMMENT,%VNORMAL,%P 2:Limit. of the axis-specific deviation:
+;ENDFOLD
+MYSTIFF.AXISMAXDELTA   = {A1 0.0,A2 0.0,A3 0.0,A4 0.0,A5 0.0, A6 0.0, E1 0.0}
+;FOLD ; Limit. of the axis-specific torque:;%{PE}%R 5.6.11,%MKUKATPBASIS,%CCOMMENT,%VNORMAL,%P 2:Limit. of the axis-specific torque:
+;ENDFOLD
+MYSTIFF.AXISMAXDELTATRQ= {A1 20.0,A2 20.0,A3 20.0,A4 20.0,A5 20.0, A6 20.0, E1 20.0}
+;endfold stiffness
+
+;FOLD INI
+  ;FOLD BASISTECH INI
+
+    GLOBAL INTERRUPT DECL 3 WHEN $STOPMESS==TRUE DO IR_STOPM ( )
+    INTERRUPT ON 3 
+    BAS (#INITMOV,0 )
+  ;ENDFOLD (BASISTECH INI)
+  ;FOLD USER INI
+    ;Make your modifications here
+    
+
+  ;ENDFOLD (USER INI)
+;ENDFOLD (INI)
+
+;fold begin
+for i=1 to 16
+$fri_to_int[i]=0
+$fri_to_rea[i]=0.0
+endfor
+bas(#tool,3)
+; Move to reasonable Startposition 
+;ptp {a1 0,a2 87,a3 87,a4 0,a5 -55,a6 0,e1 0}
+;endfold begin
+
+
+;FOLD PTP P1 Vel=20 % PDAT11 Tool[3]:Zero Base[0];%{PE}%R 5.6.11,%MKUKATPBASIS,%CMOVE,%VPTP,%P 1:PTP, 2:P1, 3:, 5:20, 7:PDAT11
+$BWDSTART=FALSE
+PDAT_ACT=PPDAT11
+FDAT_ACT=FP1
+BAS(#PTP_PARAMS,20)
+PTP XP1 
+;ENDFOLD
+
+;ptp {a1 0,a2 87,a3 87,a4 0,a5 -55,a6 0,e1 0}
+
+;fold friopen
+
+retVal=friSetup("169.254.76.9",49938,0)
+retVal=friopen(50)
+wait for ($FriState==#MON)
+$STIFFNESS=MYSTIFF
+$fri_to_int[2]=30
+halt
+;wait sec 3
+$fri_to_int[2]=10
+$STIFFNESS.STRATEGY=10
+$STIFFNESS.COMMIT=TRUE
+;endfold friopen
+
+
+
+;FOLD PTP P1 Vel=50 % PDAT12 Tool[3]:Zero Base[0];%{PE}%R 5.6.11,%MKUKATPBASIS,%CMOVE,%VPTP,%P 1:PTP, 2:P1, 3:, 5:50, 7:PDAT12
+$BWDSTART=FALSE
+PDAT_ACT=PPDAT12
+FDAT_ACT=FP1
+BAS(#PTP_PARAMS,50)
+PTP XP1 
+;ENDFOLD
+
+;ptp {a1 0,a2 87,a3 87,a4 0,a5 -55,a6 0,e1 0}
+;fold fristart
+wait for ($FriQuality==#PERFECT)
+retVal=FRISTART(1.0)
+;wait for ($FriState==#CMD)
+wait for ($fri_frm_int[1]==11)
+
+;endfold fristart 
+
+;fold friclose
+retVal = FRISTOP()
+$fri_to_int[2]=13
+wait sec 0.5
+retVal = FRICLOSE()
+$STIFFNESS.STRATEGY=10
+$STIFFNESS.COMMIT=TRUE
+WAIT SEC 1
+;endfold friclose
+
+;FOLD PTP home Vel=10 % PDAT10;%{PE}%R 5.6.11,%MKUKATPBASIS,%CMOVE,%VPTP,%P 1:PTP, 2:home, 3:, 5:10, 7:PDAT10
+$BWDSTART=FALSE
+PDAT_ACT=PPDAT10
+FDAT_ACT=Fhome
+BAS(#PTP_PARAMS,10)
+$H_POS=XHOME
+PTP Xhome 
+;ENDFOLD
+
+END

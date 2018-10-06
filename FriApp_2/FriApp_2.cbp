@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="FriApp_2" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/FriApp_2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="libws2_32.a" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/FriApp_2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="FriApp_2.cpp" />
+		<Unit filename="Pomiar.cpp" />
+		<Unit filename="Pomiar.h" />
+		<Unit filename="Pomiar_cart.cpp" />
+		<Unit filename="Pomiar_cart.h" />
+		<Unit filename="friComm.h" />
+		<Unit filename="friremote.cpp" />
+		<Unit filename="friremote.h" />
+		<Unit filename="friudp.cpp" />
+		<Unit filename="friudp.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

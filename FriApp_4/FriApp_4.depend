@@ -1,0 +1,76 @@
+# depslib dependency file v1.0
+1407534012 source:d:\praca_magisterska\friapps\friapp_4\friapp_4.cpp
+	<fstream>
+	<vector>
+	<iostream>
+	<cstdlib>
+	<math.h>
+	<limits.h>
+	"friudp.h"
+	"friremote.h"
+	"Pomiar.h"
+	"Pomiar_cart.h"
+	"Jakobian.h"
+
+1407533510 d:\praca_magisterska\friapps\friapp_4\friudp.h
+	<stdio.h>
+	<stdlib.h>
+	<winsock2.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<arpa/inet.h>
+	<unistd.h>
+	<netdb.h>
+	<string.h>
+	<sys/time.h>
+	<time.h>
+	"friComm.h"
+	<iostream>
+	<sockLib.h>
+
+1407533510 d:\praca_magisterska\friapps\friapp_4\fricomm.h
+
+1407533510 d:\praca_magisterska\friapps\friapp_4\friremote.h
+	"friudp.h"
+
+1407533510 d:\praca_magisterska\friapps\friapp_4\pomiar.h
+	<iostream>
+	"friremote.h"
+
+1407533510 d:\praca_magisterska\friapps\friapp_4\pomiar_cart.h
+	<iostream>
+	"friremote.h"
+
+1407533510 d:\praca_magisterska\friapps\friapp_4\jakobian.h
+	<iostream>
+	"friremote.h"
+
+1407533510 source:d:\praca_magisterska\friapps\friapp_4\friremote.cpp
+	"friremote.h"
+	<iostream>
+	<stdlib.h>
+
+1407533510 source:d:\praca_magisterska\friapps\friapp_4\friudp.cpp
+	"friudp.h"
+	<winsock2.h>
+	"vxworks.h"
+	"bpfDrv.h"
+	"ioLib.h"
+	<logLib.h>
+	<sys/ioctl.h>
+	<wrn/coreip/net/ethernet.h>
+	<wrn/coreip/net/if.h>
+	<wrn/coreip/netinet/ip.h>
+	<wrn/coreip/netinet/udp.h>
+	<iostream>
+	"friremote.h"
+
+1407533510 source:d:\praca_magisterska\friapps\friapp_4\jakobian.cpp
+	"Jakobian.h"
+
+1397547504 source:d:\praca_magisterska\friapps\friapp_4\pomiar.cpp
+	"Pomiar.h"
+
+1400492302 source:d:\praca_magisterska\friapps\friapp_4\pomiar_cart.cpp
+	"Pomiar_cart.h"
+

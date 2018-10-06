@@ -1,0 +1,74 @@
+&ACCESS RVP
+&REL 2
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\vorgabe
+&PARAM EDITMASK = *
+DEF FriApp_1( )
+
+;FOLD INI
+  ;FOLD BASISTECH INI
+
+    GLOBAL INTERRUPT DECL 3 WHEN $STOPMESS==TRUE DO IR_STOPM ( )
+    INTERRUPT ON 3 
+    BAS (#INITMOV,0 )
+  ;ENDFOLD (BASISTECH INI)
+  ;FOLD USER INI
+    ;Make your modifications here
+    
+
+  ;ENDFOLD (USER INI)
+;ENDFOLD (INI)
+FOR i=1 TO 16
+$fri_to_int[i]=0
+$fri_to_rea[i]=0.0
+ENDFOR
+; set the tool
+bas(#tool,3) ;3 - empty flange
+
+
+IF $mode_op<>#t1 THEN
+REPEAT
+HALT
+;****************************************
+;**** use T1-Mode for safety reasons ****
+;****************************************
+UNTIL $mode_op==#t1
+ENDIF
+
+;move to Home-position
+PTP { a1 0,a2 90,a3 0,a4 0,a5 0,a6 0,e1 0}
+
+; Move Start-position
+PTP {a1 0,a2 87,a3 87,a4 0,a5 -55,a6 0,e1 0}
+HALT
+
+retVal=friSetup("169.254.76.9",49938,0)
+
+; Test open FRI with datarate 20 msec
+retVal=friopen(20)
+WAIT FOR ($FriState==#MON)
+$fri_to_int[1]=0
+$fri_to_rea[1]=0.123
+FOR i=1 TO 3
+$fri_to_int[1]=i
+IF (i == 2) THEN
+WAIT FOR ($FriQuality==#PERFECT)
+retVal=FRISTART(1.0)
+WAIT FOR ($FriState==#CMD)
+ENDIF
+
+; superimpose the path
+PTP {a1 0,a2 87,a3 87,a4 0,a5 -55,a6 0,e1 0}
+IF (i>1) THEN
+WAIT SEC 1
+ENDIF
+PTP {a1 4.5,a2 92,a3 71,a4 0,a5 -44,a6 1,e1 0}
+ENDFOR
+
+retVal=FRISTOP()
+$fri_to_int[1]=-1
+WAIT SEC 0.5
+retVal = FRICLOSE()
+
+;move to Home-Position
+PTP { a1 0,a2 90,a3 0,a4 0,a5 0,a6 0,e1 0}
+END
